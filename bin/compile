@@ -41,7 +41,7 @@ if [ "$(grep ":min-lein-version[[:space:]]\+\"2" $BUILD_DIR/project.clj)" != "" 
   LEIN_VERSION="2.3.3"
   LEIN_BIN_SOURCE="$(dirname $0)/../opt/lein2"
   if [ "$(grep :uberjar-name $BUILD_DIR/project.clj)" != "" ]; then
-      LEIN_BUILD_TASK="${LEIN_BUILD_TASK:-uberjar}"
+      LEIN_BUILD_TASK="${LEIN_BUILD_TASK:-ring uberjar}"
       LEIN_INCLUDE_IN_SLUG="${LEIN_INCLUDE_IN_SLUG:-no}"
   else
       LEIN_BUILD_TASK=${LEIN_BUILD_TASK:-"with-profile production compile :all"}
